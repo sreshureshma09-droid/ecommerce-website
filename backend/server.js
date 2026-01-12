@@ -1,7 +1,7 @@
 const app = require('./app');
 const path = require('path');
 const connectDatabase = require('./config/database');
-const express = require('express'); // ✅ add this
+const express = require('express'); //  add this
 
 // Connect to database
 connectDatabase();

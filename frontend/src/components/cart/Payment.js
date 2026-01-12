@@ -1,6 +1,6 @@
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import { CardNumberElement, CardExpiryElement, CardCvcElement } from "@stripe/react-stripe-js";
-import axios from "axios";
+import api from "../../../api";
 import { useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
@@ -65,7 +65,7 @@ export default function Payment() {
         e.preventDefault();
         document.querySelector('#pay_btn').disabled = true;
         try {
-            const {data} = await axios.post('/api/v1/payment/process', paymentData)
+            const {data} = await api.post('/api/v1/payment/process', paymentData)
             const clientSecret = data.client_secret
             const result = await stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
