@@ -21,13 +21,13 @@ export default function ProductDetail () {
 
     const increaseQty = () => {
         const count = document.querySelector('.count')
-        if(product.stock ==0 ||  count.valueAsNumber >= product.stock) return;
+        if(product.stock ===0 ||  count.valueAsNumber >= product.stock) return;
         const qty = count.valueAsNumber + 1;
         setQuantity(qty);
     }
     const decreaseQty = () => {
         const count = document.querySelector('.count')
-        if(count.valueAsNumber == 1 ) return;
+        if(count.valueAsNumber === 1 ) return;
         const qty = count.valueAsNumber - 1;
         setQuantity(qty);
     }
